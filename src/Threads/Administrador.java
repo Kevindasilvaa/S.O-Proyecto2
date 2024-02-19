@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
  */
 public class Administrador extends Thread{
     
+    private int contadorCiclos = 0;
+    
     @Override
     public void run() {
         while (true) {

@@ -4,15 +4,17 @@
  */
 package EDD;
 
+import Personaje.Personaje;
+
 /**
  *
  * @author Kevin
  */
 public class NodoCola {
     private NodoCola next;
-    private Object element;
+    private Personaje element;
 
-    public NodoCola(Object element) {
+    public NodoCola(Personaje element) {
         this.next = null;
         this.element = element;
     }
@@ -34,14 +36,14 @@ public class NodoCola {
     /**
      * @return the element
      */
-    public Object getElement() {
+    public Personaje getElement() {
         return element;
     }
 
     /**
      * @param element the element to set
      */
-    public void setElement(Object element) {
+    public void setElement(Personaje element) {
         this.element = element;
     }
     

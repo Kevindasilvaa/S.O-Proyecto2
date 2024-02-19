@@ -4,6 +4,10 @@
  */
 package Ventanas;
 
+import EDD.NodoCola;
+import Main.Global;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Diego
@@ -15,7 +19,95 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
+    
+    //METODOS PARA ACTUALIZAR LAS COLAS DE NICKELODEON
+    public void ActualizarColaNK_1(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_1_nk().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaNK_1.setModel(modelo);
+    }
+    public void ActualizarColaNK_2(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_2_nk().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaNK_2.setModel(modelo);
+    }
+    public void ActualizarColaNK_3(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_3_nk().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaNK_3.setModel(modelo);
+    }
+    public void ActualizarColaNK_Refuerzos(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getRefuerzos_nk().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaNK_Refuerzos.setModel(modelo);
+    }
+    
+    //METODOS PARA ACTUALIZAR LAS COLAS DE Cartoon network
+    public void ActualizarColaCN_1(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_1_cn().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaCN_1.setModel(modelo);
+    }
+    public void ActualizarColaCN_2(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_2_cn().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaCN_2.setModel(modelo);
+    }
+    public void ActualizarColaCN_3(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getPrioridad_3_cn().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaCN_3.setModel(modelo);
+    }
+    public void ActualizarColaCN_Refuerzos(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        modelo.removeAllElements();
+        NodoCola pointer = Global.getRefuerzos_cn().getHead();
+        while (pointer != null) {
+            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            pointer = pointer.getNext();
+        }
+        colaCN_Refuerzos.setModel(modelo);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,21 +134,21 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        colaNK_1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        colaNK_2 = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        colaNK_3 = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        colaNK_Refuerzos = new javax.swing.JList<>();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
+        colaCN_2 = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jList6 = new javax.swing.JList<>();
+        colaCN_1 = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList7 = new javax.swing.JList<>();
+        colaCN_3 = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jList8 = new javax.swing.JList<>();
+        colaCN_Refuerzos = new javax.swing.JList<>();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -124,75 +216,75 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel17.setText("resultado");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        colaNK_1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(colaNK_1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 70));
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        colaNK_2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(colaNK_2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 150, 70));
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        colaNK_3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList3);
+        jScrollPane3.setViewportView(colaNK_3);
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 150, 70));
 
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+        colaNK_Refuerzos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane4.setViewportView(jList4);
+        jScrollPane4.setViewportView(colaNK_Refuerzos);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 150, 70));
 
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+        colaCN_2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList5);
+        jScrollPane5.setViewportView(colaCN_2);
 
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 150, 70));
 
-        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+        colaCN_1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane6.setViewportView(jList6);
+        jScrollPane6.setViewportView(colaCN_1);
 
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 150, 70));
 
-        jList7.setModel(new javax.swing.AbstractListModel<String>() {
+        colaCN_3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList7);
+        jScrollPane7.setViewportView(colaCN_3);
 
         getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 150, 70));
 
-        jList8.setModel(new javax.swing.AbstractListModel<String>() {
+        colaCN_Refuerzos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane8.setViewportView(jList8);
+        jScrollPane8.setViewportView(colaCN_Refuerzos);
 
         getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 150, 70));
 
@@ -254,6 +346,14 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> colaCN_1;
+    private javax.swing.JList<String> colaCN_2;
+    private javax.swing.JList<String> colaCN_3;
+    private javax.swing.JList<String> colaCN_Refuerzos;
+    private javax.swing.JList<String> colaNK_1;
+    private javax.swing.JList<String> colaNK_2;
+    private javax.swing.JList<String> colaNK_3;
+    private javax.swing.JList<String> colaNK_Refuerzos;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -272,14 +372,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
-    private javax.swing.JList<String> jList5;
-    private javax.swing.JList<String> jList6;
-    private javax.swing.JList<String> jList7;
-    private javax.swing.JList<String> jList8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

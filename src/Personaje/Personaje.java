@@ -13,6 +13,7 @@ import java.util.Random;
 public class Personaje {
     private int id;
     private int nivel;
+    private int contador = 0;
     private String compania;
     
     //atributos del personaje
@@ -36,7 +37,7 @@ public class Personaje {
         int numero =  this.CantidadDeAtributosDeCalidad();
         Random random = new Random();
         int resultado = 0;
-
+        
         switch (numero) {
             case 0:
                 resultado = 3;
@@ -224,5 +225,19 @@ public class Personaje {
      */
     public void setAgilidad(boolean agilidad) {
         this.agilidad = agilidad;
+    }
+
+    /**
+     * @return the contador
+     */
+    public int getContador() {
+        return contador;
+    }
+
+    /**
+     * @param contador the contador to set
+     */
+    public void setContador(int contador) {
+        this.contador = contador;
     }
 }
