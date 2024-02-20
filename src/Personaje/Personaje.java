@@ -15,6 +15,7 @@ public class Personaje {
     private int nivel;
     private int contador = 0;
     private String compania;
+    private String nombre;
     
     //atributos del personaje
     //false = no es de calidad
@@ -24,9 +25,10 @@ public class Personaje {
     private boolean fuerza;
     private boolean agilidad;
 
-    public Personaje(int id, String compania) {
+    public Personaje(int id, String compania,String nombre) {
         this.id = id;
         this.compania = compania;
+        this.nombre = nombre;
         this.determinarNivel();
     }
     
@@ -239,5 +241,19 @@ public class Personaje {
      */
     public void setContador(int contador) {
         this.contador = contador;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

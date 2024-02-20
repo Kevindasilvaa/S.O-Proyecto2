@@ -50,6 +50,10 @@ public class Main {
         System.out.println("");
         Global.getPersonajes_cn().printList();
         Global.getInterfaz().ActualizarColaCN_1();
+        for (int i = 0; i < 100; i++) {
+            
+            System.out.println(func.nombrePersonajeAleatorio("Cartoon Network"));
+        }
         
     }
     

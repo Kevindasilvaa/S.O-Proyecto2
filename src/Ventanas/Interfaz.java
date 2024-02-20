@@ -29,7 +29,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_1_nk().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("N" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaNK_1.setModel(modelo);
@@ -39,7 +39,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_2_nk().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("N" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaNK_2.setModel(modelo);
@@ -49,7 +49,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_3_nk().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("N" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaNK_3.setModel(modelo);
@@ -59,7 +59,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getRefuerzos_nk().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("N" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaNK_Refuerzos.setModel(modelo);
@@ -71,7 +71,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_1_cn().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("C" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaCN_1.setModel(modelo);
@@ -81,7 +81,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_2_cn().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("C" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaCN_2.setModel(modelo);
@@ -91,7 +91,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getPrioridad_3_cn().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("C" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaCN_3.setModel(modelo);
@@ -101,7 +101,7 @@ public class Interfaz extends javax.swing.JFrame {
         modelo.removeAllElements();
         NodoCola pointer = Global.getRefuerzos_cn().getHead();
         while (pointer != null) {
-            modelo.addElement(Integer.toString(pointer.getElement().getId()));
+            modelo.addElement("C" + Integer.toString(pointer.getElement().getId())+" - " +pointer.getElement().getNombre());
             pointer = pointer.getNext();
         }
         colaCN_Refuerzos.setModel(modelo);

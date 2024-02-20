@@ -6,6 +6,7 @@ package Main;
 
 import EDD.Cola;
 import EDD.ListaDoble;
+import Personaje.Personaje;
 import Ventanas.Interfaz;
 import java.util.concurrent.Semaphore;
 
@@ -47,6 +48,12 @@ public class Global {
     
     //Interfaz
     private static Interfaz interfaz = new Interfaz();
+    
+    //Peleadores
+    private static Personaje peleadorNickelodeon;
+    private static Personaje peleadorCN;
+    
+    private static int cantidadCiclos = 0;
 
     /**
      * @return the personajes_cn
@@ -298,5 +305,47 @@ public class Global {
      */
     public static void setInterfaz(Interfaz aInterfaz) {
         interfaz = aInterfaz;
+    }
+
+    /**
+     * @return the peleadorNickelodeon
+     */
+    public static Personaje getPeleadorNickelodeon() {
+        return peleadorNickelodeon;
+    }
+
+    /**
+     * @param aPeleadorNickelodeon the peleadorNickelodeon to set
+     */
+    public static void setPeleadorNickelodeon(Personaje aPeleadorNickelodeon) {
+        peleadorNickelodeon = aPeleadorNickelodeon;
+    }
+
+    /**
+     * @return the peleadorCN
+     */
+    public static Personaje getPeleadorCN() {
+        return peleadorCN;
+    }
+
+    /**
+     * @param aPeleadorCN the peleadorCN to set
+     */
+    public static void setPeleadorCN(Personaje aPeleadorCN) {
+        peleadorCN = aPeleadorCN;
+    }
+
+    /**
+     * @return the cantidadCiclos
+     */
+    public static int getCantidadCiclos() {
+        return cantidadCiclos;
+    }
+
+    /**
+     * @param aCantidadCiclos the cantidadCiclos to set
+     */
+    public static void setCantidadCiclos(int aCantidadCiclos) {
+        cantidadCiclos = aCantidadCiclos;
     }
 }
