@@ -6,6 +6,7 @@ package Main;
 
 import EDD.NodoCola;
 import Personaje.Personaje;
+import Threads.Administrador;
 
 /**
  *
@@ -54,6 +55,9 @@ public class Main {
             
             System.out.println(func.nombrePersonajeAleatorio("Cartoon Network"));
         }
+        
+        Administrador admin = new Administrador();
+        admin.start();
         
     }
     

@@ -23,42 +23,9 @@ public class Funciones {
     
     //Este metodo crea los 20 personajes iniciales de cada empresa y los mete en sus respectivas colas
     public void crearPersonajes(){
-        //Primero creamos 20 de nickelodeon
         for (int i = 0; i < 20; i++) {
-            Global.setContador_id(Global.getContador_id() + 1);
-            String nombre = this.nombrePersonajeAleatorio("Nickelodeon");
-            Personaje p = new Personaje(Global.getContador_id(),"Nickelodeon",nombre);
-            if(p.getNivel() == 1){
-                Global.getPrioridad_1_nk().encolar(p);
-            }
-            if(p.getNivel() == 2){
-                Global.getPrioridad_2_nk().encolar(p);
-            }
-            if(p.getNivel() == 3){
-                Global.getPrioridad_3_nk().encolar(p);
-            }
-            Global.getRefuerzos_nk().encolar(p);// lo anadimos a la cola de refuerzos
-            Global.getPersonajes_nk().insertFinal(p);// lo anadimos a la lista de personajes
-            //System.out.println(p.isHabilidades() +" " + p.isPuntosVida() + " " + p.isFuerza() + " " + p.isAgilidad() + " "+ p.getNivel()+"\n");
-        }
-        
-        //ahora creamos 20 de Cartoon network
-        for (int i = 0; i < 20; i++) {
-            Global.setContador_id(Global.getContador_id() + 1);
-            String nombre = this.nombrePersonajeAleatorio("Cartoon Network");
-            Personaje p = new Personaje(Global.getContador_id(),"Cartoon Network",nombre);
-            if(p.getNivel() == 1){
-                Global.getPrioridad_1_cn().encolar(p);
-            }
-            if(p.getNivel() == 2){
-                Global.getPrioridad_2_cn().encolar(p);
-            }
-            if(p.getNivel() == 3){
-                Global.getPrioridad_3_cn().encolar(p);
-            }
-            Global.getRefuerzos_cn().encolar(p);
-            Global.getPersonajes_cn().insertFinal(p);
-            //System.out.println(p.isHabilidades() +" " + p.isPuntosVida() + " " + p.isFuerza() + " " + p.isAgilidad() + " "+ p.getNivel()+"\n");
+            this.crearPersonajeNickelodeon();//Primero creamos 20 de nickelodeon
+            this.crearPersonajeCN();//ahora creamos 20 de Cartoon network
         }
         
         //Actualizar todas las colas en la interfaz
@@ -82,5 +49,40 @@ public class Funciones {
             respuesta = this.nombresPersonajesCartoonNetwork[indice];
         }
         return respuesta;
+    }
+    
+    public void crearPersonajeNickelodeon(){
+        Global.setContador_id(Global.getContador_id() + 1);
+        String nombre = this.nombrePersonajeAleatorio("Nickelodeon");
+        Personaje p = new Personaje(Global.getContador_id(),"Nickelodeon",nombre);
+        if(p.getNivel() == 1){
+            Global.getPrioridad_1_nk().encolar(p);
+        }
+        if(p.getNivel() == 2){
+            Global.getPrioridad_2_nk().encolar(p);
+        }
+        if(p.getNivel() == 3){
+            Global.getPrioridad_3_nk().encolar(p);
+        }
+        Global.getPersonajes_nk().insertFinal(p);// lo anadimos a la lista de personajes
+        //System.out.println(p.isHabilidades() +" " + p.isPuntosVida() + " " + p.isFuerza() + " " + p.isAgilidad() + " "+ p.getNivel()+"\n");
+        
+    }
+    //este metodo crea un personaje de cartoon network
+    public void crearPersonajeCN(){
+        Global.setContador_id(Global.getContador_id() + 1);
+        String nombre = this.nombrePersonajeAleatorio("Cartoon Network");
+        Personaje p = new Personaje(Global.getContador_id(),"Cartoon Network",nombre);
+        if(p.getNivel() == 1){
+            Global.getPrioridad_1_cn().encolar(p);
+        }
+        if(p.getNivel() == 2){
+            Global.getPrioridad_2_cn().encolar(p);
+        }
+        if(p.getNivel() == 3){
+            Global.getPrioridad_3_cn().encolar(p);
+        }
+        Global.getPersonajes_cn().insertFinal(p);
+            //System.out.println(p.isHabilidades() +" " + p.isPuntosVida() + " " + p.isFuerza() + " " + p.isAgilidad() + " "+ p.getNivel()+"\n");
     }
 }

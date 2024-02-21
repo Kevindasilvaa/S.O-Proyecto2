@@ -92,6 +92,31 @@ public class Cola {
         }
     }
     
+    public void eliminar(Personaje personaje) {
+        NodoCola current = getHead();
+        NodoCola previous = null;
+
+        while (current != null) {
+            if (current.getElement().equals(personaje)) {
+                if (previous == null) {
+                    setHead(current.getNext());
+                    if (getHead() == null) {
+                        setTail(null);
+                    }
+                } else {
+                    previous.setNext(current.getNext());
+                    if (current.getNext() == null) {
+                        setTail(previous);
+                    }
+                }
+                size--;
+                return;
+            }
+            previous = current;
+            current = current.getNext();
+        }
+    }
+    
     public void printQueue(){
         NodoCola pointer = getHead();
         while (pointer != null) {
