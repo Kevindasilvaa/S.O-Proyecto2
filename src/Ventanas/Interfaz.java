@@ -135,12 +135,11 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         cartoonNetworkScore = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         nickelodeonScore = new javax.swing.JLabel();
         estadoIA = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         peleadores = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -159,7 +158,9 @@ public class Interfaz extends javax.swing.JFrame {
         colaCN_3 = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         colaCN_Refuerzos = new javax.swing.JList<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        velocidad = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -204,15 +205,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("VELOCIDAD DE REPRODUCCION");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel14.setText("0");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel15.setText("0");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
 
         cartoonNetworkScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         cartoonNetworkScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,17 +220,21 @@ public class Interfaz extends javax.swing.JFrame {
         nickelodeonScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         nickelodeonScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nickelodeonScore.setText("0");
-        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 80, 50));
+        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, 50));
 
         estadoIA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estadoIA.setText("ESTADO DE LA IA");
-        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 150, 30));
+        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 150, 30));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("LISTA DE GANADORES");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         peleadores.setColumns(20);
         peleadores.setRows(5);
         jScrollPane9.setViewportView(peleadores);
 
-        getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 240, 148));
+        getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 260, 70));
 
         colaNK_1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -311,13 +308,21 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 150, 70));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane10.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 386, 190, 110));
+
+        velocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.25", "0.5", "0.75", "1", "2", "5", "10", "20" }));
+        velocidad.setSelectedIndex(3);
+        velocidad.setToolTipText("");
+        velocidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                velocidadActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, -1, -1));
+        getContentPane().add(velocidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 60, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/avatar.jpg"))); // NOI18N
@@ -329,9 +334,12 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void velocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_velocidadActionPerformed
+        double newSimSpeed = Double.parseDouble(this.velocidad.getSelectedItem().toString());
+        Global.setSimSpeed(10000/newSimSpeed);
+        Global.setNextSim(10000/newSimSpeed);
+        Global.setDuracionSimulacion(10000/newSimSpeed);
+    }//GEN-LAST:event_velocidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,12 +387,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JList<String> colaNK_3;
     private javax.swing.JList<String> colaNK_Refuerzos;
     private javax.swing.JLabel estadoIA;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -395,6 +401,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -403,7 +410,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel nickelodeonScore;
     private javax.swing.JTextArea peleadores;
+    private javax.swing.JComboBox<String> velocidad;
     // End of variables declaration//GEN-END:variables
 }
