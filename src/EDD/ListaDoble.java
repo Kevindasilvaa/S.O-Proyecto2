@@ -199,10 +199,44 @@ public class ListaDoble {
         return null;
     }
     
+    public void eliminar(Personaje personaje) {
+    NodoListaDoble current = head;
+    
+    // Buscar el nodo que contiene el personaje a eliminar
+    while (current != null && !current.getElement().equals(personaje)) {
+        current = current.getNext();
+    }
+    
+    // Si se encontró el nodo
+    if (current != null) {
+        // Si el nodo es la cabeza
+        if (current == head) {
+            head = head.getNext();
+            if (head != null) {
+                head.setPrevious(null);
+            } else {
+                tail = null; // Si la lista queda vacía
+            }
+        }
+        // Si el nodo es la cola
+        else if (current == tail) {
+            tail = tail.getPrevious();
+            tail.setNext(null);
+        }
+        // Si el nodo está en el medio de la lista
+        else {
+            current.getPrevious().setNext(current.getNext());
+            current.getNext().setPrevious(current.getPrevious());
+        }
+        
+        size--;
+    }
+    }
+    
     public void printList(){
         NodoListaDoble aux = head;
         for (int i = 0; i < getSize(); i++) {
-            System.out.println(aux.getElement());
+            System.out.println(aux.getElement().getId());
             aux = aux.getNext();
         }
     }

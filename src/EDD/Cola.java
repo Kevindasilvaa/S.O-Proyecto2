@@ -4,6 +4,8 @@
  */
 package EDD;
 
+import Personaje.Personaje;
+
 /**
  *
  * @author Kevin
@@ -48,7 +50,7 @@ public class Cola {
     }
     
     
-    public NodoCola encolar(Object data){
+    public NodoCola encolar(Personaje data){
         NodoCola node = new NodoCola(data);
         if (isEmpty()) {
             setHead(node);
@@ -90,10 +92,35 @@ public class Cola {
         }
     }
     
+    public void eliminar(Personaje personaje) {
+        NodoCola current = getHead();
+        NodoCola previous = null;
+
+        while (current != null) {
+            if (current.getElement().equals(personaje)) {
+                if (previous == null) {
+                    setHead(current.getNext());
+                    if (getHead() == null) {
+                        setTail(null);
+                    }
+                } else {
+                    previous.setNext(current.getNext());
+                    if (current.getNext() == null) {
+                        setTail(previous);
+                    }
+                }
+                size--;
+                return;
+            }
+            previous = current;
+            current = current.getNext();
+        }
+    }
+    
     public void printQueue(){
         NodoCola pointer = getHead();
         while (pointer != null) {
-            System.out.println("NODO:"+pointer.getElement());
+            System.out.println(pointer.getElement().getId());
             pointer = pointer.getNext();
         }
     }
