@@ -6,7 +6,7 @@ package Threads;
 
 /**
  *
- * @author Kevin
+ * @author Diego
  */
 public class IA extends Thread{
     @Override
@@ -16,3 +16,4 @@ public class IA extends Thread{
                     
     }
 }
+
