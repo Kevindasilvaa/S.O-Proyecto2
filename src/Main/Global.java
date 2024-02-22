@@ -7,6 +7,8 @@ package Main;
 import EDD.Cola;
 import EDD.ListaDoble;
 import Personaje.Personaje;
+import Threads.Administrador;
+import Threads.IA;
 import Ventanas.Interfaz;
 import java.util.concurrent.Semaphore;
 
@@ -15,6 +17,8 @@ import java.util.concurrent.Semaphore;
  * @author Kevin
  */
 public class Global {
+    private static Administrador administrador = new Administrador();
+    private static IA ia = new IA();
     //Listas de personajes
     private static ListaDoble personajes_cn = new ListaDoble();
     private static ListaDoble personajes_nk = new ListaDoble();
@@ -38,6 +42,7 @@ public class Global {
     //Semaforos de sincornización
     private static Semaphore mutex1 = new Semaphore(0);
     private static Semaphore mutex2 = new Semaphore(0);
+    private static Semaphore mutex3 = new Semaphore(1);
     
     //Velocidad de simulacion
     private double simSpeed = 1000;
@@ -362,5 +367,47 @@ public class Global {
      */
     public static void setMutex2(Semaphore aMutex2) {
         mutex2 = aMutex2;
+    }
+
+    /**
+     * @return the administrador
+     */
+    public static Administrador getAdministrador() {
+        return administrador;
+    }
+
+    /**
+     * @param aAdministrador the administrador to set
+     */
+    public static void setAdministrador(Administrador aAdministrador) {
+        administrador = aAdministrador;
+    }
+
+    /**
+     * @return the ia
+     */
+    public static IA getIa() {
+        return ia;
+    }
+
+    /**
+     * @param aIa the ia to set
+     */
+    public static void setIa(IA aIa) {
+        ia = aIa;
+    }
+
+    /**
+     * @return the mutex3
+     */
+    public static Semaphore getMutex3() {
+        return mutex3;
+    }
+
+    /**
+     * @param aMutex3 the mutex3 to set
+     */
+    public static void setMutex3(Semaphore aMutex3) {
+        mutex3 = aMutex3;
     }
 }

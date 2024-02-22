@@ -22,15 +22,18 @@ public class Administrador extends Thread{
     
     @Override
     public void run() {
-        while (true) {
-            //Sincronizamos los semaforos
+        while (true) {          
             try {
+                //Sincronizamos los semaforos
                 Global.getMutex1().release();
                 Global.getMutex2().acquire();
+                //entramos a la seccion critica
+                Global.getMutex3().acquire();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("soy el admin");
+            if(Global.getPeleadorCN() == null && Global.getPeleadorNickelodeon() == null){
+                System.out.println("soy el admin");
                 if (Global.getCantidadCiclos() == 2) {
                     //random sera un número pseudorandom de tipo double mayor o igual a 0.0 y menor que 1.0.
                     double random = Math.random();
@@ -100,6 +103,9 @@ public class Administrador extends Thread{
                 
                 //aumenatmos el contador de ciclos
                 Global.setCantidadCiclos(Global.getCantidadCiclos() + 1);
+                
+            }
+            Global.getMutex3().release();//salimos de la seccion critica
         }
                     
     }

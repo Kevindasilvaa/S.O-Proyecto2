@@ -8,6 +8,9 @@ import EDD.NodoCola;
 import Personaje.Personaje;
 import Threads.Administrador;
 import Threads.IA;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,6 +63,8 @@ public class Main {
         IA ia = new IA();
         admi.start();
         ia.start();
+            
+
     }
         
 }

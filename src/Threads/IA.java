@@ -23,6 +23,7 @@ public class IA extends Thread{
                 try {
                     Global.getMutex2().release();
                     Global.getMutex1().acquire();
+                    Global.getMutex3().acquire();
                 } catch (InterruptedException ex) {
                     Logger.getLogger(IA.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -62,7 +63,9 @@ public class IA extends Thread{
                     Global.getInterfaz().cambiarEstadoIA("No hay personajes");
                     System.out.println("no hay personaje");
                 }
-                
+                Global.setPeleadorCN(null);
+                Global.setPeleadorNickelodeon(null);
+                Global.getMutex3().release();
                 
                 
             } catch (InterruptedException ex) {
