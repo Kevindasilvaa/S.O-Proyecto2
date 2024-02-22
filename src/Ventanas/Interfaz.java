@@ -107,6 +107,14 @@ public class Interfaz extends javax.swing.JFrame {
         colaCN_Refuerzos.setModel(modelo);
     }
     
+    public void cambiarEstadoIA(String estado){
+        estadoIA.setText(estado);
+    }
+    
+    public void actualizarPeleadores(String str) {
+        peleadores.setText(str);
+    }
+    
     
 
     /**
@@ -127,12 +135,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        cartoonNetworkScore = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        nickelodeonScore = new javax.swing.JLabel();
+        estadoIA = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        peleadores = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         colaNK_1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -194,27 +204,40 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("VELOCIDAD DE REPRODUCCION");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, -1, -1));
-
-        jLabel12.setText("Nombre personaje");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
-
-        jLabel13.setText("Nombre personaje");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setText("0");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setText("0");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
 
-        jLabel16.setText("resultado");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+        cartoonNetworkScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        cartoonNetworkScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cartoonNetworkScore.setText("0");
+        getContentPane().add(cartoonNetworkScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 80, 50));
 
-        jLabel17.setText("resultado");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        jLabel18.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("-");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 40, 30));
+
+        nickelodeonScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        nickelodeonScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nickelodeonScore.setText("0");
+        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 80, 50));
+
+        estadoIA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        estadoIA.setText("ESTADO DE LA IA");
+        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 150, 30));
+
+        peleadores.setColumns(20);
+        peleadores.setRows(5);
+        jScrollPane9.setViewportView(peleadores);
+
+        getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 240, 148));
 
         colaNK_1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -346,6 +369,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cartoonNetworkScore;
     private javax.swing.JList<String> colaCN_1;
     private javax.swing.JList<String> colaCN_2;
     private javax.swing.JList<String> colaCN_3;
@@ -354,16 +378,14 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JList<String> colaNK_2;
     private javax.swing.JList<String> colaNK_3;
     private javax.swing.JList<String> colaNK_Refuerzos;
+    private javax.swing.JLabel estadoIA;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -380,5 +402,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JLabel nickelodeonScore;
+    private javax.swing.JTextArea peleadores;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,11 +36,12 @@ public class Global {
     private static Cola victorias_cn = new Cola();
     
     //Semaforos de sincornización
-    private static Semaphore mutex1 = new Semaphore(1);
+    private static Semaphore mutex1 = new Semaphore(0);
+    private static Semaphore mutex2 = new Semaphore(0);
     
     //Velocidad de simulacion
     private double simSpeed = 1000;
-    private double simLoad = 2000;
+    private static double duracionSimulacion = 10000;
     private double nextSim = 4000;
     
     //Contador de id's de los personajes
@@ -252,20 +253,6 @@ public class Global {
     }
 
     /**
-     * @return the simLoad
-     */
-    public double getSimLoad() {
-        return simLoad;
-    }
-
-    /**
-     * @param simLoad the simLoad to set
-     */
-    public void setSimLoad(double simLoad) {
-        this.simLoad = simLoad;
-    }
-
-    /**
      * @return the nextSim
      */
     public double getNextSim() {
@@ -347,5 +334,33 @@ public class Global {
      */
     public static void setCantidadCiclos(int aCantidadCiclos) {
         cantidadCiclos = aCantidadCiclos;
+    }
+
+    /**
+     * @return the duracionSimulacion
+     */
+    public static double getDuracionSimulacion() {
+        return duracionSimulacion;
+    }
+
+    /**
+     * @param aDuracionSimulacion the duracionSimulacion to set
+     */
+    public static void setDuracionSimulacion(double aDuracionSimulacion) {
+        duracionSimulacion = aDuracionSimulacion;
+    }
+
+    /**
+     * @return the mutex2
+     */
+    public static Semaphore getMutex2() {
+        return mutex2;
+    }
+
+    /**
+     * @param aMutex2 the mutex2 to set
+     */
+    public static void setMutex2(Semaphore aMutex2) {
+        mutex2 = aMutex2;
     }
 }
