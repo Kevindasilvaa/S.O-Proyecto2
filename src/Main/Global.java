@@ -7,6 +7,8 @@ package Main;
 import EDD.Cola;
 import EDD.ListaDoble;
 import Personaje.Personaje;
+import Threads.Administrador;
+import Threads.IA;
 import Ventanas.Interfaz;
 import java.util.concurrent.Semaphore;
 
@@ -15,6 +17,8 @@ import java.util.concurrent.Semaphore;
  * @author Kevin
  */
 public class Global {
+    private static Administrador administrador = new Administrador();
+    private static IA ia = new IA();
     //Listas de personajes
     private static ListaDoble personajes_cn = new ListaDoble();
     private static ListaDoble personajes_nk = new ListaDoble();
@@ -36,12 +40,14 @@ public class Global {
     private static Cola victorias_cn = new Cola();
     
     //Semaforos de sincornización
-    private static Semaphore mutex1 = new Semaphore(1);
+    private static Semaphore mutex1 = new Semaphore(0);
+    private static Semaphore mutex2 = new Semaphore(0);
+    private static Semaphore mutex3 = new Semaphore(1);
     
     //Velocidad de simulacion
-    private double simSpeed = 1000;
-    private double simLoad = 2000;
-    private double nextSim = 4000;
+    private static double simSpeed = 1000;
+    private static double duracionSimulacion = 10000;
+    private static double nextSim = 4000;
     
     //Contador de id's de los personajes
     private static int contador_id = 0;
@@ -55,297 +61,204 @@ public class Global {
     
     private static int cantidadCiclos = 0;
 
-    /**
-     * @return the personajes_cn
-     */
+    public static Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public static void setAdministrador(Administrador administrador) {
+        Global.administrador = administrador;
+    }
+
+    public static IA getIa() {
+        return ia;
+    }
+
+    public static void setIa(IA ia) {
+        Global.ia = ia;
+    }
+
     public static ListaDoble getPersonajes_cn() {
         return personajes_cn;
     }
 
-    /**
-     * @param aPersonajes_cn the personajes_cn to set
-     */
-    public static void setPersonajes_cn(ListaDoble aPersonajes_cn) {
-        personajes_cn = aPersonajes_cn;
+    public static void setPersonajes_cn(ListaDoble personajes_cn) {
+        Global.personajes_cn = personajes_cn;
     }
 
-    /**
-     * @return the personajes_nk
-     */
     public static ListaDoble getPersonajes_nk() {
         return personajes_nk;
     }
 
-    /**
-     * @param aPersonajes_nk the personajes_nk to set
-     */
-    public static void setPersonajes_nk(ListaDoble aPersonajes_nk) {
-        personajes_nk = aPersonajes_nk;
+    public static void setPersonajes_nk(ListaDoble personajes_nk) {
+        Global.personajes_nk = personajes_nk;
     }
 
-    /**
-     * @return the prioridad_1_cn
-     */
     public static Cola getPrioridad_1_cn() {
         return prioridad_1_cn;
     }
 
-    /**
-     * @param aPrioridad_1_cn the prioridad_1_cn to set
-     */
-    public static void setPrioridad_1_cn(Cola aPrioridad_1_cn) {
-        prioridad_1_cn = aPrioridad_1_cn;
+    public static void setPrioridad_1_cn(Cola prioridad_1_cn) {
+        Global.prioridad_1_cn = prioridad_1_cn;
     }
 
-    /**
-     * @return the prioridad_2_cn
-     */
     public static Cola getPrioridad_2_cn() {
         return prioridad_2_cn;
     }
 
-    /**
-     * @param aPrioridad_2_cn the prioridad_2_cn to set
-     */
-    public static void setPrioridad_2_cn(Cola aPrioridad_2_cn) {
-        prioridad_2_cn = aPrioridad_2_cn;
+    public static void setPrioridad_2_cn(Cola prioridad_2_cn) {
+        Global.prioridad_2_cn = prioridad_2_cn;
     }
 
-    /**
-     * @return the prioridad_3_cn
-     */
     public static Cola getPrioridad_3_cn() {
         return prioridad_3_cn;
     }
 
-    /**
-     * @param aPrioridad_3_cn the prioridad_3_cn to set
-     */
-    public static void setPrioridad_3_cn(Cola aPrioridad_3_cn) {
-        prioridad_3_cn = aPrioridad_3_cn;
+    public static void setPrioridad_3_cn(Cola prioridad_3_cn) {
+        Global.prioridad_3_cn = prioridad_3_cn;
     }
 
-    /**
-     * @return the refuerzos_cn
-     */
     public static Cola getRefuerzos_cn() {
         return refuerzos_cn;
     }
 
-    /**
-     * @param aRefuerzos_cn the refuerzos_cn to set
-     */
-    public static void setRefuerzos_cn(Cola aRefuerzos_cn) {
-        refuerzos_cn = aRefuerzos_cn;
+    public static void setRefuerzos_cn(Cola refuerzos_cn) {
+        Global.refuerzos_cn = refuerzos_cn;
     }
 
-    /**
-     * @return the prioridad_1_nk
-     */
     public static Cola getPrioridad_1_nk() {
         return prioridad_1_nk;
     }
 
-    /**
-     * @param aPrioridad_1_nk the prioridad_1_nk to set
-     */
-    public static void setPrioridad_1_nk(Cola aPrioridad_1_nk) {
-        prioridad_1_nk = aPrioridad_1_nk;
+    public static void setPrioridad_1_nk(Cola prioridad_1_nk) {
+        Global.prioridad_1_nk = prioridad_1_nk;
     }
 
-    /**
-     * @return the prioridad_2_nk
-     */
     public static Cola getPrioridad_2_nk() {
         return prioridad_2_nk;
     }
 
-    /**
-     * @param aPrioridad_2_nk the prioridad_2_nk to set
-     */
-    public static void setPrioridad_2_nk(Cola aPrioridad_2_nk) {
-        prioridad_2_nk = aPrioridad_2_nk;
+    public static void setPrioridad_2_nk(Cola prioridad_2_nk) {
+        Global.prioridad_2_nk = prioridad_2_nk;
     }
 
-    /**
-     * @return the prioridad_3_nk
-     */
     public static Cola getPrioridad_3_nk() {
         return prioridad_3_nk;
     }
 
-    /**
-     * @param aPrioridad_3_nk the prioridad_3_nk to set
-     */
-    public static void setPrioridad_3_nk(Cola aPrioridad_3_nk) {
-        prioridad_3_nk = aPrioridad_3_nk;
+    public static void setPrioridad_3_nk(Cola prioridad_3_nk) {
+        Global.prioridad_3_nk = prioridad_3_nk;
     }
 
-    /**
-     * @return the refuerzos_nk
-     */
     public static Cola getRefuerzos_nk() {
         return refuerzos_nk;
     }
 
-    /**
-     * @param aRefuerzos_nk the refuerzos_nk to set
-     */
-    public static void setRefuerzos_nk(Cola aRefuerzos_nk) {
-        refuerzos_nk = aRefuerzos_nk;
+    public static void setRefuerzos_nk(Cola refuerzos_nk) {
+        Global.refuerzos_nk = refuerzos_nk;
     }
 
-    /**
-     * @return the victorias_nk
-     */
     public static Cola getVictorias_nk() {
         return victorias_nk;
     }
 
-    /**
-     * @param aVictorias_nk the victorias_nk to set
-     */
-    public static void setVictorias_nk(Cola aVictorias_nk) {
-        victorias_nk = aVictorias_nk;
+    public static void setVictorias_nk(Cola victorias_nk) {
+        Global.victorias_nk = victorias_nk;
     }
 
-    /**
-     * @return the victorias_cn
-     */
     public static Cola getVictorias_cn() {
         return victorias_cn;
     }
 
-    /**
-     * @param aVictorias_cn the victorias_cn to set
-     */
-    public static void setVictorias_cn(Cola aVictorias_cn) {
-        victorias_cn = aVictorias_cn;
+    public static void setVictorias_cn(Cola victorias_cn) {
+        Global.victorias_cn = victorias_cn;
     }
 
-    /**
-     * @return the mutex1
-     */
     public static Semaphore getMutex1() {
         return mutex1;
     }
 
-    /**
-     * @param aMutex1 the mutex1 to set
-     */
-    public static void setMutex1(Semaphore aMutex1) {
-        mutex1 = aMutex1;
+    public static void setMutex1(Semaphore mutex1) {
+        Global.mutex1 = mutex1;
     }
 
-    /**
-     * @return the simSpeed
-     */
-    public double getSimSpeed() {
+    public static Semaphore getMutex2() {
+        return mutex2;
+    }
+
+    public static void setMutex2(Semaphore mutex2) {
+        Global.mutex2 = mutex2;
+    }
+
+    public static Semaphore getMutex3() {
+        return mutex3;
+    }
+
+    public static void setMutex3(Semaphore mutex3) {
+        Global.mutex3 = mutex3;
+    }
+
+    public static double getSimSpeed() {
         return simSpeed;
     }
 
-    /**
-     * @param simSpeed the simSpeed to set
-     */
-    public void setSimSpeed(double simSpeed) {
-        this.simSpeed = simSpeed;
+    public static void setSimSpeed(double simSpeed) {
+        Global.simSpeed = simSpeed;
     }
 
-    /**
-     * @return the simLoad
-     */
-    public double getSimLoad() {
-        return simLoad;
+    public static double getDuracionSimulacion() {
+        return duracionSimulacion;
     }
 
-    /**
-     * @param simLoad the simLoad to set
-     */
-    public void setSimLoad(double simLoad) {
-        this.simLoad = simLoad;
+    public static void setDuracionSimulacion(double duracionSimulacion) {
+        Global.duracionSimulacion = duracionSimulacion;
     }
 
-    /**
-     * @return the nextSim
-     */
-    public double getNextSim() {
+    public static double getNextSim() {
         return nextSim;
     }
 
-    /**
-     * @param nextSim the nextSim to set
-     */
-    public void setNextSim(double nextSim) {
-        this.nextSim = nextSim;
+    public static void setNextSim(double nextSim) {
+        Global.nextSim = nextSim;
     }
 
-    /**
-     * @return the contador_id
-     */
     public static int getContador_id() {
         return contador_id;
     }
 
-    /**
-     * @param aContador_id the contador_id to set
-     */
-    public static void setContador_id(int aContador_id) {
-        contador_id = aContador_id;
+    public static void setContador_id(int contador_id) {
+        Global.contador_id = contador_id;
     }
 
-    /**
-     * @return the interfaz
-     */
     public static Interfaz getInterfaz() {
         return interfaz;
     }
 
-    /**
-     * @param aInterfaz the interfaz to set
-     */
-    public static void setInterfaz(Interfaz aInterfaz) {
-        interfaz = aInterfaz;
+    public static void setInterfaz(Interfaz interfaz) {
+        Global.interfaz = interfaz;
     }
 
-    /**
-     * @return the peleadorNickelodeon
-     */
     public static Personaje getPeleadorNickelodeon() {
         return peleadorNickelodeon;
     }
 
-    /**
-     * @param aPeleadorNickelodeon the peleadorNickelodeon to set
-     */
-    public static void setPeleadorNickelodeon(Personaje aPeleadorNickelodeon) {
-        peleadorNickelodeon = aPeleadorNickelodeon;
+    public static void setPeleadorNickelodeon(Personaje peleadorNickelodeon) {
+        Global.peleadorNickelodeon = peleadorNickelodeon;
     }
 
-    /**
-     * @return the peleadorCN
-     */
     public static Personaje getPeleadorCN() {
         return peleadorCN;
     }
 
-    /**
-     * @param aPeleadorCN the peleadorCN to set
-     */
-    public static void setPeleadorCN(Personaje aPeleadorCN) {
-        peleadorCN = aPeleadorCN;
+    public static void setPeleadorCN(Personaje peleadorCN) {
+        Global.peleadorCN = peleadorCN;
     }
 
-    /**
-     * @return the cantidadCiclos
-     */
     public static int getCantidadCiclos() {
         return cantidadCiclos;
     }
 
-    /**
-     * @param aCantidadCiclos the cantidadCiclos to set
-     */
-    public static void setCantidadCiclos(int aCantidadCiclos) {
-        cantidadCiclos = aCantidadCiclos;
+    public static void setCantidadCiclos(int cantidadCiclos) {
+        Global.cantidadCiclos = cantidadCiclos;
     }
+
 }

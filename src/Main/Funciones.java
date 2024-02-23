@@ -8,7 +8,7 @@ import Personaje.Personaje;
 
 /**
  *
- * @author Kevin
+ * @author Diego
  */
 public class Funciones {
     private String[] nombresPersonajesNickelodeon = {
@@ -16,9 +16,9 @@ public class Funciones {
         "Haru", "Mai", "Jet", "Long Feng", "Ozai", "Yue", "Bumi", "Pakku", "Zhao"
     };
     private String[] nombresPersonajesCartoonNetwork = {
-        "Finn", "Jake", "Princesa Bubblegum", "Marceline", "Ice King", "BMO", "Lady Rainicorn", "Beemo", 
-        "Gunter", "Lumpy Space Princess", "Princess Fiona", "Gumball", "Darwin", "Richard", "Nicole", 
-        "Anais", "Mr. Krabs", "SpongeBob", "Patrick", "Squidward"
+        "Mordecai", "Rigby", "Musculoso", "Benson", "Skips", "Papaleta", "Starla", "Margarita", 
+        "Fantasmin", "Mr Maellard", "CJ", "Roxy", "Low Five Ghost", "Buttonwillow", "Mr Murphy", 
+        "Dr Henry", "Gary", "Gopher", "Glenn", "Thomas"
     };
     
     //Este metodo crea los 20 personajes iniciales de cada empresa y los mete en sus respectivas colas

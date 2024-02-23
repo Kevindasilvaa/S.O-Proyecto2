@@ -22,9 +22,18 @@ public class Administrador extends Thread{
     
     @Override
     public void run() {
-        while (true) {
+        while (true) {          
             try {
-                Global.getMutex1().acquire();//pedimos permiso para entrar al Area Compartida
+                //Sincronizamos los semaforos
+                Global.getMutex1().release();
+                Global.getMutex2().acquire();
+                //entramos a la seccion critica
+                Global.getMutex3().acquire();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(Global.getPeleadorCN() == null && Global.getPeleadorNickelodeon() == null){
+                System.out.println("soy el admin");
                 if (Global.getCantidadCiclos() == 2) {
                     //random sera un número pseudorandom de tipo double mayor o igual a 0.0 y menor que 1.0.
                     double random = Math.random();
@@ -43,18 +52,24 @@ public class Administrador extends Thread{
                 //asignamos el peleador de nickelodeon
                 if (!Global.getPrioridad_1_nk().isEmpty()) {
                     nickelodeonPeleador = Global.getPrioridad_1_nk().getHead().getElement();
+                    Global.getPrioridad_1_nk().desencolar();
                 } else if (!Global.getPrioridad_2_nk().isEmpty()) {
                     nickelodeonPeleador = Global.getPrioridad_2_nk().getHead().getElement();
+                    Global.getPrioridad_2_nk().desencolar();
                 } else if (!Global.getPrioridad_3_nk().isEmpty()) {
                     nickelodeonPeleador = Global.getPrioridad_3_nk().getHead().getElement();
+                    Global.getPrioridad_3_nk().desencolar();
                 }
                 //asignamos el peleador de cartoon network
                 if (!Global.getPrioridad_1_cn().isEmpty()) {
                     cartoonNetworkPeleador = Global.getPrioridad_1_cn().getHead().getElement();
+                    Global.getPrioridad_1_cn().desencolar();
                 } else if (!Global.getPrioridad_2_cn().isEmpty()) {
                     cartoonNetworkPeleador = Global.getPrioridad_2_cn().getHead().getElement();
+                    Global.getPrioridad_2_cn().desencolar();
                 } else if (!Global.getPrioridad_3_cn().isEmpty()) {
                     cartoonNetworkPeleador = Global.getPrioridad_3_cn().getHead().getElement();
+                    Global.getPrioridad_3_cn().desencolar();
                 }
                 
                 //Revisa para sacar de las colas de refuerzo y meter en la cola de prioridad 1
@@ -84,15 +99,13 @@ public class Administrador extends Thread{
                 //Pone en el buffer al peleador que le toca para que el AI lo tome
                 Global.setPeleadorNickelodeon(nickelodeonPeleador);
                 Global.setPeleadorCN(cartoonNetworkPeleador);
-                System.out.println(nickelodeonPeleador + " vs " + cartoonNetworkPeleador);
+                System.out.println(nickelodeonPeleador.getId() + " vs " + cartoonNetworkPeleador.getId());
                 
                 //aumenatmos el contador de ciclos
                 Global.setCantidadCiclos(Global.getCantidadCiclos() + 1);
                 
-                Global.getMutex1().release();//avisamos la salida del Area Compartida  
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Global.getMutex3().release();//salimos de la seccion critica
         }
                     
     }

@@ -7,6 +7,10 @@ package Main;
 import EDD.NodoCola;
 import Personaje.Personaje;
 import Threads.Administrador;
+import Threads.IA;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,22 +47,24 @@ public class Main {
 //        System.out.println("cantidad 3: " + cantidad_3);
         Funciones func = new Funciones();
         func.crearPersonajes();
-        Global.getPrioridad_1_cn().printQueue();
-        NodoCola node = Global.getPrioridad_1_cn().despachar();
-        System.out.println("");
-        Global.getPersonajes_cn().eliminar((Personaje) node.getElement());
-        Global.getPrioridad_1_cn().printQueue();
-        System.out.println("");
-        Global.getPersonajes_cn().printList();
-        Global.getInterfaz().ActualizarColaCN_1();
-        for (int i = 0; i < 100; i++) {
+//        Global.getPrioridad_1_cn().printQueue();
+//        NodoCola node = Global.getPrioridad_1_cn().despachar();
+//        System.out.println("");
+//        Global.getPersonajes_cn().eliminar((Personaje) node.getElement());
+//        Global.getPrioridad_1_cn().printQueue();
+//        System.out.println("");
+//        Global.getPersonajes_cn().printList();
+//        Global.getInterfaz().ActualizarColaCN_1();
+//        for (int i = 0; i < 100; i++) {
+//            
+//            System.out.println(func.nombrePersonajeAleatorio("Cartoon Network"));
+//        }
+        Administrador admi = new Administrador();     
+        IA ia = new IA();
+        admi.start();
+        ia.start();
             
-            System.out.println(func.nombrePersonajeAleatorio("Cartoon Network"));
-        }
-        
-        Administrador admin = new Administrador();
-        admin.start();
-        
+
     }
-    
+        
 }
