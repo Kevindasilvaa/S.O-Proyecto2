@@ -52,6 +52,11 @@ public class Global {
     //Contador de id's de los personajes
     private static int contador_id = 0;
     
+    //Contador de los ganadores de Nickelodeon
+    private static int contador_ganadoresNK = 0;
+    //Contador de los ganadores de Cartoon Network
+    private static int contador_ganadoresCN = 0;
+    
     //Interfaz
     private static Interfaz interfaz = new Interfaz();
     
@@ -227,6 +232,22 @@ public class Global {
 
     public static void setContador_id(int contador_id) {
         Global.contador_id = contador_id;
+    }
+    
+    public static int getContador_ganadoresNK() {
+        return contador_ganadoresNK;
+    }
+
+    public static void setContador_ganadoresNK(int contador_ganadoresNK) {
+        Global.contador_ganadoresNK = contador_ganadoresNK;
+    }
+
+    public static int getContador_ganadoresCN() {
+        return contador_ganadoresCN;
+    }
+
+    public static void setContador_ganadoresCN(int contador_ganadoresCN) {
+        Global.contador_ganadoresCN = contador_ganadoresCN;
     }
 
     public static Interfaz getInterfaz() {

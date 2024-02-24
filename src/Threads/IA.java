@@ -4,6 +4,7 @@
  */
 package Threads;
 
+import EDD.ListaDoble;
 import Main.Global;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
@@ -44,20 +45,34 @@ public class IA extends Thread{
                     
                     
                     if (randNum < 40) {//40% de probabilidades de ganar
+                        String ganadores = "";
                         int numeroRandom = (int) (Math.random() * 100);
                         if(numeroRandom < 50){
-                            Global.getInterfaz().cambiarEstadoIA("GANADOR: " +"N"+Global.getPeleadorNickelodeon().getId()+" - "+ Global.getPeleadorNickelodeon().getNombre());
+                            //Ganador nickelodeon
+                            String ganadorNK = Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre();
+                            Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorNK);
+                            ganadores += ganadorNK + "\n";
+                            int countNK = Global.getContador_ganadoresNK();
+                            Global.setContador_ganadoresNK(countNK +1);
+                            Global.getInterfaz().aumentoGanadorNK(countNK);
+                            Global.getInterfaz().actualizarListaGanadores(ganadores);
                         }else{
-                            Global.getInterfaz().cambiarEstadoIA("GANADOR: " +"C"+Global.getPeleadorCN().getId()+" - "+ Global.getPeleadorCN().getNombre());
+                            String ganadorCN = Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
+                            Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorCN);
+                            ganadores += ganadorCN + "\n";
+                            int countCN = Global.getContador_ganadoresCN();
+                            Global.setContador_ganadoresCN(countCN +1);
+                            Global.getInterfaz().aumentoGanadorCN(countCN);
+                            Global.getInterfaz().actualizarListaGanadores(ganadores);
                         }
                     } else if (randNum < 67) {//%27 de probabilidades empatar
-                        Global.getInterfaz().cambiarEstadoIA("EMPATE");
                         Global.getPrioridad_1_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getPrioridad_1_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().cambiarEstadoBatalla("EMPATE");
                     } else {//33% de que no haya combate
-                        Global.getInterfaz().cambiarEstadoIA("NO PUDO LLEVARSE ACABO EL COMBATE");
                         Global.getRefuerzos_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getRefuerzos_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().cambiarEstadoBatalla("NO PUDO LLEVARSE A CABO");
                     }
                 } else {
                     Global.getInterfaz().cambiarEstadoIA("No hay personajes");
