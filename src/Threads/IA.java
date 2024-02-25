@@ -4,6 +4,7 @@
  */
 package Threads;
 
+import EDD.ListaDoble;
 import Main.Global;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
@@ -15,6 +16,7 @@ import javax.swing.ImageIcon;
  * @author Diego
  */
 public class IA extends Thread{
+    String ganadores = "";
     @Override
     public void run() {
         while (true) {
@@ -29,7 +31,9 @@ public class IA extends Thread{
                 }
                 System.out.println("soy la IA");
                 Global.getInterfaz().actualizarPeleadores("");
+                Global.getInterfaz().cambiarEstadoBatalla("RESULTADO DE LA BATALLA");
                 Global.getInterfaz().cambiarEstadoIA("SELECCIONANDO");
+                sleep((long) (Global.getSimSpeed())); //duerme 1 segundo
                 
                 if (Global.getPeleadorNickelodeon() != null && Global.getPeleadorCN() != null) {//si los 2 peleadores son diferentes de null entrara aqui
                     //actualizar peleadores
@@ -37,28 +41,44 @@ public class IA extends Thread{
                     Global.getInterfaz().actualizarPeleadores(peleadores);
                     Global.getInterfaz().cambiarEstadoIA("DECIDIENDO");
                     
-                    sleep((long) Global.getDuracionSimulacion());//duerme los 10 segundos
+                    sleep((long) (Global.getDuracionSimulacion())/2);//duerme 5 segundos
                     
                     int randNum = (int) (Math.random() * 100);
-//                    System.out.println("Numero random: " + randNum);
+                    System.out.println("Numero random: " + randNum);
                     
                     
                     if (randNum < 40) {//40% de probabilidades de ganar
                         int numeroRandom = (int) (Math.random() * 100);
                         if(numeroRandom < 50){
-                            Global.getInterfaz().cambiarEstadoIA("GANADOR: " +"N"+Global.getPeleadorNickelodeon().getId()+" - "+ Global.getPeleadorNickelodeon().getNombre());
+                            //Ganador nickelodeon
+                            String ganadorNK = Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre();
+                            Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorNK);
+                            ganadores += ganadorNK + "\n";
+                            int countNK = Global.getContador_ganadoresNK()+1;
+                            Global.setContador_ganadoresNK(countNK);
+                            Global.getInterfaz().aumentoGanadorNK(countNK);
+                            Global.getInterfaz().actualizarListaGanadores(ganadores);
                         }else{
-                            Global.getInterfaz().cambiarEstadoIA("GANADOR: " +"C"+Global.getPeleadorCN().getId()+" - "+ Global.getPeleadorCN().getNombre());
+                            String ganadorCN = Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
+                            Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorCN);
+                            ganadores += ganadorCN + "\n";
+                            int countCN = Global.getContador_ganadoresCN()+1;
+                            Global.setContador_ganadoresCN(countCN);
+                            Global.getInterfaz().aumentoGanadorCN(countCN);
+                            Global.getInterfaz().actualizarListaGanadores(ganadores);
                         }
                     } else if (randNum < 67) {//%27 de probabilidades empatar
-                        Global.getInterfaz().cambiarEstadoIA("EMPATE");
                         Global.getPrioridad_1_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getPrioridad_1_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().cambiarEstadoBatalla("EMPATE");
                     } else {//33% de que no haya combate
-                        Global.getInterfaz().cambiarEstadoIA("NO PUDO LLEVARSE ACABO EL COMBATE");
                         Global.getRefuerzos_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getRefuerzos_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().cambiarEstadoBatalla("NO PUDO LLEVARSE A CABO");
                     }
+                    Global.getInterfaz().cambiarEstadoIA("ANUNCIANDO RESULTADO");
+                    sleep((long) (Global.getNextSim())); //duerme 4 segundos
+                    
                 } else {
                     Global.getInterfaz().cambiarEstadoIA("No hay personajes");
                     System.out.println("no hay personaje");
