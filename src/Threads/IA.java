@@ -70,10 +70,14 @@ public class IA extends Thread{
                     } else if (randNum < 67) {//%27 de probabilidades empatar
                         Global.getPrioridad_1_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getPrioridad_1_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().ActualizarColaCN_1();
+                        Global.getInterfaz().ActualizarColaNK_1();
                         Global.getInterfaz().cambiarEstadoBatalla("EMPATE");
                     } else {//33% de que no haya combate
                         Global.getRefuerzos_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getRefuerzos_cn().encolar(Global.getPeleadorCN());
+                        Global.getInterfaz().ActualizarColaNK_Refuerzos();
+                        Global.getInterfaz().ActualizarColaCN_Refuerzos();
                         Global.getInterfaz().cambiarEstadoBatalla("NO PUDO LLEVARSE A CABO");
                     }
                     Global.getInterfaz().cambiarEstadoIA("ANUNCIANDO RESULTADO");
