@@ -226,21 +226,21 @@ public class Interfaz extends javax.swing.JFrame {
         cartoonNetworkScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         cartoonNetworkScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cartoonNetworkScore.setText("0");
-        getContentPane().add(cartoonNetworkScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 80, 50));
+        getContentPane().add(cartoonNetworkScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 80, 50));
 
         jLabel18.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("-");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 40, 30));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 40, 30));
 
         nickelodeonScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         nickelodeonScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nickelodeonScore.setText("0");
-        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, 50));
+        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 80, 50));
 
         estadoIA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estadoIA.setText("ESTADO DE LA IA");
-        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 150, 30));
+        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 210, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("LISTA DE GANADORES");
