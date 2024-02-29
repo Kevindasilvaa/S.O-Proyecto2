@@ -8,7 +8,7 @@ import Personaje.Personaje;
 
 /**
  *
- * @author Kevin
+ * @author Diego
  */
 public class Funciones {
     private String[] nombresPersonajesNickelodeon = {
