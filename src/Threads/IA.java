@@ -31,13 +31,13 @@ public class IA extends Thread{
                 }
                 System.out.println("soy la IA");
                 Global.getInterfaz().actualizarPeleadores("");
-                Global.getInterfaz().cambiarEstadoBatalla("RESULTADO DE LA BATALLA");
+                Global.getInterfaz().cambiarEstadoBatalla("");
                 Global.getInterfaz().cambiarEstadoIA("SELECCIONANDO");
                 sleep((long) (Global.getSimSpeed())); //duerme 1 segundo
                 
                 if (Global.getPeleadorNickelodeon() != null && Global.getPeleadorCN() != null) {//si los 2 peleadores son diferentes de null entrara aqui
                     //actualizar peleadores
-                    String peleadores = "N"+Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre() + "  vs  "+"C"+Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
+                    String peleadores = "N"+Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre() + "    vs    "+"C"+Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
                     Global.getInterfaz().actualizarPeleadores(peleadores);
                     Global.getInterfaz().cambiarEstadoIA("DECIDIENDO");
                     
@@ -51,7 +51,7 @@ public class IA extends Thread{
                         int numeroRandom = (int) (Math.random() * 100);
                         if(numeroRandom < 50){
                             //Ganador nickelodeon
-                            String ganadorNK = Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre();
+                            String ganadorNK = "N"+Global.getPeleadorNickelodeon().getId()+"-"+Global.getPeleadorNickelodeon().getNombre();
                             Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorNK);
                             ganadores += ganadorNK + "\n";
                             int countNK = Global.getContador_ganadoresNK()+1;
@@ -59,7 +59,7 @@ public class IA extends Thread{
                             Global.getInterfaz().aumentoGanadorNK(countNK);
                             Global.getInterfaz().actualizarListaGanadores(ganadores);
                         }else{
-                            String ganadorCN = Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
+                            String ganadorCN = "C"+Global.getPeleadorCN().getId()+"-"+Global.getPeleadorCN().getNombre();
                             Global.getInterfaz().cambiarEstadoBatalla("GANADOR:"+ganadorCN);
                             ganadores += ganadorCN + "\n";
                             int countCN = Global.getContador_ganadoresCN()+1;
@@ -72,7 +72,7 @@ public class IA extends Thread{
                         Global.getPrioridad_1_cn().encolar(Global.getPeleadorCN());
                         Global.getInterfaz().ActualizarColaCN_1();
                         Global.getInterfaz().ActualizarColaNK_1();
-                        Global.getInterfaz().cambiarEstadoBatalla("EMPATE");
+                        Global.getInterfaz().cambiarEstadoBatalla("         EMPATE");
                     } else {//33% de que no haya combate
                         Global.getRefuerzos_nk().encolar(Global.getPeleadorNickelodeon());
                         Global.getRefuerzos_cn().encolar(Global.getPeleadorCN());

@@ -156,6 +156,8 @@ public class Interfaz extends javax.swing.JFrame {
         estadoIA = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         ganadormomento = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         peleadores = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -189,8 +191,8 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("COLA DE PRIORIDAD 1");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, 20));
+        jLabel4.setText("ESTADO DE LA IA:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,35 +222,43 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("VELOCIDAD DE REPRODUCCION");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, -1, -1));
 
         cartoonNetworkScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         cartoonNetworkScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cartoonNetworkScore.setText("0");
-        getContentPane().add(cartoonNetworkScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 80, 50));
+        getContentPane().add(cartoonNetworkScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 80, 50));
 
         jLabel18.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("-");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 40, 30));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 40, 30));
 
         nickelodeonScore.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         nickelodeonScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nickelodeonScore.setText("0");
-        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 80, 50));
+        getContentPane().add(nickelodeonScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 50));
 
         estadoIA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        estadoIA.setText("ESTADO DE LA IA");
-        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 210, 30));
+        getContentPane().add(estadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 220, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("LISTA DE GANADORES");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         ganadormomento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ganadormomento.setText("RESULTADO DE LA BATALLA");
-        getContentPane().add(ganadormomento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 280, 30));
+        getContentPane().add(ganadormomento, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 280, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setText("RESULTADO DE LA BATALLA");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, 20));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setText("COLA DE PRIORIDAD 1");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, 20));
 
         peleadores.setColumns(20);
         peleadores.setRows(5);
@@ -413,6 +423,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

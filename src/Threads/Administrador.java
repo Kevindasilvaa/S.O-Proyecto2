@@ -99,7 +99,7 @@ public class Administrador extends Thread{
                 //Pone en el buffer al peleador que le toca para que el AI lo tome
                 Global.setPeleadorNickelodeon(nickelodeonPeleador);
                 Global.setPeleadorCN(cartoonNetworkPeleador);
-                System.out.println(nickelodeonPeleador.getId() + " vs " + cartoonNetworkPeleador.getId());
+                //System.out.println(nickelodeonPeleador.getId() + " vs " + cartoonNetworkPeleador.getId());
                 
                 //aumenatmos el contador de ciclos
                 Global.setCantidadCiclos(Global.getCantidadCiclos() + 1);
