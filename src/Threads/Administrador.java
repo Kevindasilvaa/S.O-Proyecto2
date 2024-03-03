@@ -74,7 +74,8 @@ public class Administrador extends Thread{
                 
                 //Revisa para sacar de las colas de refuerzo y meter en la cola de prioridad 1
                 double random = Math.random();
-                if ((random < 0.40)) {
+                System.out.println(random);
+                if ((random < 0.40)) {//si cayo en el 40% lo anadimos a la cola de prioridad 1
                     if (!Global.getRefuerzos_nk().isEmpty()) {
                         NodoCola personaje = Global.getRefuerzos_nk().despachar();//eliminamos al primero en entrar de los refuerzos 
                         Global.getPrioridad_1_nk().encolar(personaje.getElement());//lo anadimos a la cola 1
@@ -83,6 +84,15 @@ public class Administrador extends Thread{
                     if (!Global.getRefuerzos_cn().isEmpty()) {
                         NodoCola personaje = Global.getRefuerzos_cn().despachar();//eliminamos al primero en entrar de los refuerzos 
                         Global.getPrioridad_1_cn().encolar(personaje.getElement());//lo anadimos a la cola 1
+                    }
+                }else{//sino lo ponemos de ultimo en la cola de refuerzos
+                    if (!Global.getRefuerzos_nk().isEmpty()) {
+                        NodoCola personaje = Global.getRefuerzos_nk().despachar();//eliminamos al primero en entrar de los refuerzos 
+                        Global.getRefuerzos_nk().encolar(personaje.getElement());//lo anadimos a la cola 1
+                    }
+                    if (!Global.getRefuerzos_cn().isEmpty()) {
+                        NodoCola personaje = Global.getRefuerzos_cn().despachar();//eliminamos al primero en entrar de los refuerzos 
+                        Global.getRefuerzos_cn().encolar(personaje.getElement());//lo anadimos a la cola 1
                     }
                 }
                 
